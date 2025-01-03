@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: 56, 189, 248;
+  --color-text: 226, 232, 240;
+  --color-text-300: 148, 163, 184;
+  --color-text-700: 241, 245, 249;
+  --color-background: 15, 23, 42;
+  --color-border: 51, 65, 85;
+}
+
+@layer base {
+  body {
+    @apply bg-slate-900 text-slate-200 antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer components {
+  .stat-card {
+    @apply relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-800 to-slate-800/50 p-6 
+           backdrop-blur-lg border border-slate-700/50 transition-all duration-300
+           hover:shadow-lg hover:border-slate-600/50;
+  }
+
+  .stat-label {
+    @apply text-slate-400 text-sm font-medium mb-2;
+  }
+
+  .stat-value {
+    @apply text-stat font-bold;
+  }
+
+  .stat-value.primary {
+    @apply text-primary-light;
+  }
+
+  .stat-value.success {
+    @apply text-green;
+  }
+
+  .stat-value.warning {
+    @apply text-yellow;
+  }
+
+  .input-group {
+    @apply relative flex items-center;
+  }
+
+  .input-group .icon {
+    @apply absolute left-3 text-slate-400;
+  }
+
+  .input-control {
+    @apply w-full bg-slate-800/50 border border-slate-700 rounded-lg px-4 py-2.5 
+           text-slate-200 placeholder-slate-500
+           focus:ring-2 focus:ring-primary/50 focus:border-transparent
+           transition-all duration-200;
+  }
+
+  .input-control.with-icon {
+    @apply pl-10;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg
+           font-medium transition-all duration-200 disabled:opacity-50;
+  }
+
+  .btn-primary {
+    @apply bg-gradient-to-r from-primary-light to-primary-dark text-white
+           hover:from-primary-dark hover:to-primary-dark
+           focus:ring-2 focus:ring-primary-light/50;
+  }
+
+  .table-container {
+    @apply rounded-2xl bg-slate-800/50 backdrop-blur-lg border border-slate-700/50 
+           overflow-hidden transition-all duration-300;
+  }
+
+  .table {
+    @apply w-full;
+  }
+
+  .table thead {
+    @apply bg-slate-800/80;
+  }
+
+  .table th {
+    @apply px-6 py-4 text-left text-sm font-medium text-slate-400;
+  }
+
+  .table tbody tr {
+    @apply border-t border-slate-700/50 transition-colors hover:bg-slate-700/30;
+  }
+
+  .table td {
+    @apply px-6 py-4 text-sm text-slate-300;
+  }
+}
+
+/* Custom scrollbar */
+.scrollbar-custom::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.scrollbar-custom::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb {
+  @apply bg-slate-700 rounded-full;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+/* Custom select styles */
+.custom-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2394A3B8'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 1rem;
+}
