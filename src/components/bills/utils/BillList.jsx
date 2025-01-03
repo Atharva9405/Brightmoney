@@ -4,11 +4,11 @@ import { useSelector } from "react-redux";
 import {
   selectFilteredBills,
   selectOptimalBills,
-} from "../../features/bills/selectors";
-import { useBillActions } from "../../hooks/useBillActions";
-import { formatCurrency, formatDate } from "../../utils/format";
-import DeleteConfirmModal from "../common/DeleteConfirmationModal";
-import Modal from "../common/Modal";
+} from "../../../features/bills/selectors";
+import { useBillActions } from "../../../hooks/useBillActions";
+import { formatCurrency, formatDate } from "../../../utils/format";
+import DeleteConfirmModal from "../../common/DeleteConfirmationModal";
+import Modal from "../../common/Modal";
 import BillForm from "./BillForm";
 
 const BillList = () => {

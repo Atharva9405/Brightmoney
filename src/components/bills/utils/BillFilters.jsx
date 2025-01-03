@@ -1,7 +1,7 @@
 import { DollarSign, Filter } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
-import { setBudget, setCategory } from "../../features/bills/billsSlice";
-import { CATEGORIES } from "../../utils/constants";
+import { setBudget, setCategory } from "../../../features/bills/billsSlice";
+import { CATEGORIES } from "../../../utils/constants";
 
 const BillFilters = () => {
   const dispatch = useDispatch();

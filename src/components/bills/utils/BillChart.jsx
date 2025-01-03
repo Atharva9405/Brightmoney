@@ -10,7 +10,7 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import { selectFilteredBills } from "../../features/bills/selectors";
+import { selectFilteredBills } from "../../../features/bills/selectors";
 
 const formatCurrency = (value) => {
   if (value >= 1000000) {

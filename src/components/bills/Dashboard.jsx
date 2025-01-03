@@ -3,42 +3,28 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import { selectTotalAmount } from "../../features/bills/selectors";
 import Modal from "../common/Modal";
-import BillChart from "./BillChart";
-import BillFilters from "./BillFilters";
-import BillForm from "./BillForm";
-import BillList from "./BillList";
+import BillChart from "./utils/BillChart";
+import BillFilters from "./utils/BillFilters";
+import BillForm from "./utils/BillForm";
+import BillList from "./utils/BillList";
 import { formatCurrency } from "../../utils/format";
+import StatCard from "./StatCard";
 
-const StatCard = ({ label, value, icon: Icon, type = "primary" }) => (
-  <div className="stat-card">
-    <div className="flex justify-between items-center gap-1">
-      <div>
-        <p className="stat-label">{label}</p>
-        <p className={`stat-value ${type}`}>{value}</p>
-      </div>
-      <div className={`p-3 flex items-center justify-center rounded-xl bg-${type}-light/10`}>
-        <Icon className={`w-6 h-6 text-${type}-light`} />
-      </div>
-    </div>
-  </div>
-);
 
-const BillDashboard = () => {
+
+const Dashboard = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const totalAmount = useSelector(selectTotalAmount);
   const monthlyBudget = useSelector((state) => state.bills.monthlyBudget);
 
   return (
-    <div className="min-h-screen bg-slate-900 px-4 py-8">
+    <div className="min-h-screen bg-black px-4 py-8">
       <div className="max-w-7xl mx-auto space-y-8">
         <div className="flex justify-center items-center">
           <div className="flex flex-col justify-center items-center">
-            <h1 className="text-4xl font-bold text-white bg-clip-text text-transparent">
+            <h1 className="text-4xl font-bold text-white bg-clip-text text-transparent mb-1">
               Bill Dashboard
             </h1>
-            <p className="text-slate-300 mt-1">
-              Manage and track your expenses
-            </p>
           </div>
         </div>
 
@@ -57,7 +43,7 @@ const BillDashboard = () => {
           />
           <button
             onClick={() => setIsModalOpen(true)}
-            className="btn btn-primary text-2xl"
+            className="btn btn-primary text-2xl rounded-full"
           >
             <PlusCircle className="w-5 h-5" />
             Add New Bill
@@ -76,4 +62,4 @@ const BillDashboard = () => {
   );
 };
 
-export default BillDashboard;
+export default Dashboard;

@@ -1,7 +1,7 @@
 import { Calendar, DollarSign, FileText, ListFilter } from "lucide-react";
 import { useEffect, useState } from "react";
-import { useBillActions } from "../../hooks/useBillActions";
-import { CATEGORIES } from "../../utils/constants";
+import { useBillActions } from "../../../hooks/useBillActions";
+import { CATEGORIES } from "../../../utils/constants";
 
 const BILL_CATEGORIES = CATEGORIES.slice(1);
 

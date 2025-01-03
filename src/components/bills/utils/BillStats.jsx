@@ -1,8 +1,8 @@
 import { PiggyBank, TrendingUp, Wallet } from "lucide-react";
 import { useSelector } from "react-redux";
-import { selectTotalAmount } from "../../features/bills/selectors";
-import { formatCurrency } from "../../utils/format";
-import Card from "../common/Card";
+import { selectTotalAmount } from "../../../features/bills/selectors";
+import { formatCurrency } from "../../../utils/format";
+import Card from "../../common/Card";
 
 const BillStats = () => {
   const totalAmount = useSelector(selectTotalAmount);
