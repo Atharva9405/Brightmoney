@@ -10,7 +10,7 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import { selectFilteredBills } from "../../../features/bills/selectors";
+import { selectFilteredBills } from "../../../redux/features/bills/selectors";
 
 const formatCurrency = (value) => {
   if (value >= 1000000) {
@@ -55,14 +55,13 @@ const BillChart = () => {
   }, [chartData]);
 
   return (
-    <div className="rounded-2xl bg-slate-800/50 backdrop-blur-lg border border-slate-700/50">
+    <div className="rounded-2xl bg-gray-800/50 backdrop-blur-lg border border-white/50">
       <div className="p-4 md:p-6 space-y-6">
         {/* Header Section */}
         <div className="flex flex-col justify-center md:flex-row items-center gap-4">
           <div className="flex flex-col items-center justify-center">
             <h2 className="text-xl font-semibold text-slate-200 flex items-center gap-2">
               Expense Chart
-              <TrendingUp className="h-5 w-5 text-primary-light" />
             </h2>
             <p className="text-sm text-slate-400 mt-1">
               Monthly spending analysis

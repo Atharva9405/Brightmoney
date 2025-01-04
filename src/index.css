@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -23,13 +23,11 @@
 
 @layer components {
   .stat-card {
-    @apply relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-800 to-slate-800/50 p-6 
-           backdrop-blur-lg border border-slate-700/50 transition-all duration-300
-           hover:shadow-lg hover:border-slate-600/50;
+    @apply relative overflow-hidden rounded-2xl bg-white/75 p-6 backdrop-blur-lg border border-slate-800/50 transition-all duration-300 hover:shadow-lg hover:border-slate-600/50 flex flex-col justify-center items-center;
   }
 
   .stat-label {
-    @apply text-slate-400 text-sm font-medium mb-2;
+    @apply text-black text-lg font-medium mb-2;
   }
 
   .stat-value {
@@ -37,11 +35,11 @@
   }
 
   .stat-value.primary {
-    @apply text-primary-light;
+    @apply text-green-800;
   }
 
   .stat-value.success {
-    @apply text-green;
+    @apply text-red-500;
   }
 
   .stat-value.warning {
@@ -73,9 +71,7 @@
   }
 
   .btn-primary {
-    @apply bg-gradient-to-r from-primary-light to-primary-dark text-white
-           hover:from-primary-dark hover:to-primary-dark
-           focus:ring-2 focus:ring-primary-light/50;
+    @apply text-black bg-green-400;
   }
 
   .table-container {
@@ -118,12 +114,12 @@
   @apply bg-slate-700 rounded-full;
 }
 
-input[type='number']::-webkit-inner-spin-button,
-input[type='number']::-webkit-outer-spin-button {
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-input[type='number'] {
+input[type="number"] {
   -moz-appearance: textfield;
 }
 

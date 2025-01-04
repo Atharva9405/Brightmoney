@@ -1,4 +1,4 @@
-import { INITIAL_BILLS, INITIAL_MONTHLY_BUDGET } from "../../utils/constants";
+import { INITIAL_BILLS, INITIAL_MONTHLY_BUDGET } from "../../../utils/constants";
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {

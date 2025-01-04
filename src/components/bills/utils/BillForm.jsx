@@ -91,12 +91,12 @@ const BillForm = ({ initialData = null, onClose }) => {
   };
 
   return (
-    <div className="space-y-6">
-      <div>
-        <h2 className="text-2xl font-semibold text-slate-200">
+    <div className="space-y-6 bg-black/75">
+      <div className="flex flex-col justify-center items-center">
+        <h2 className="text-2xl font-semibold text-white">
           {initialData ? "Edit Bill" : "Add New Bill"}
         </h2>
-        <p className="mt-1 text-slate-400">
+        <p className="mt-1 text-white">
           {initialData
             ? "Update the bill details below."
             : "Enter the bill details below."}
@@ -106,7 +106,7 @@ const BillForm = ({ initialData = null, onClose }) => {
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Description Field */}
         <div>
-          <label className="block text-sm font-medium text-slate-300 mb-2">
+          <label className="block text-sm font-medium text-slate-200 mb-2">
             Description
           </label>
           <div className="relative">

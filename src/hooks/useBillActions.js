@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import { useDispatch } from "react-redux";
-import { addBill, updateBill, deleteBill } from "../features/bills/billsSlice";
+import { addBill, updateBill, deleteBill } from "../redux/features/bills/billsSlice";
 import { validateBill } from "../utils/validation";
 
 export const useBillActions = () => {

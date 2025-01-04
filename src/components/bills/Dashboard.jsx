@@ -1,14 +1,14 @@
 import { PlusCircle, TrendingUp, Wallet } from "lucide-react";
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import { selectTotalAmount } from "../../features/bills/selectors";
+import { selectTotalAmount } from "../../redux/features/bills/selectors";
 import Modal from "../common/Modal";
 import BillChart from "./utils/BillChart";
 import BillFilters from "./utils/BillFilters";
 import BillForm from "./utils/BillForm";
-import BillList from "./utils/BillList";
 import { formatCurrency } from "../../utils/format";
 import StatCard from "./StatCard";
+import { Link } from "react-router-dom";
 
 
 
@@ -28,7 +28,7 @@ const Dashboard = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-4 gap-3">
           <StatCard
             label="Total Expenses"
             value={formatCurrency(totalAmount)}
@@ -48,11 +48,15 @@ const Dashboard = () => {
             <PlusCircle className="w-5 h-5" />
             Add New Bill
           </button>
+          <Link to='/bills'
+            className="btn bg-white/75 text-black backdrop-blur-lg border border-white/50 text-2xl rounded-full"
+          >
+            Show Bills
+          </Link>
         </div>
 
         <BillFilters />
         <BillChart />
-        <BillList />
 
         <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
           <BillForm onClose={() => setIsModalOpen(false)} />

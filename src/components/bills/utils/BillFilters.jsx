@@ -1,6 +1,6 @@
 import { DollarSign, Filter } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
-import { setBudget, setCategory } from "../../../features/bills/billsSlice";
+import { setBudget, setCategory } from "../../../redux/features/bills/billsSlice";
 import { CATEGORIES } from "../../../utils/constants";
 
 const BillFilters = () => {
@@ -15,10 +15,10 @@ const BillFilters = () => {
 
   return (
     <>
-      <div className="glass-effect rounded-2xl p-4 md:p-6">
+      <div className="bg-gray-800/50 backdrop-blur-lg border border-white/50 rounded-2xl p-4 md:p-6">
         <div className="flex flex-col md:flex-row gap-4 md:gap-6">
           <div className="flex-1">
-            <label className="flex items-center gap-2 text-sm font-medium text-slate-400 mb-2">
+            <label className="flex items-center gap-2 text-sm font-medium text-white mb-2">
               <Filter className="w-4 h-4" />
               Filter by Category
             </label>
@@ -26,7 +26,7 @@ const BillFilters = () => {
               <select
                 value={selectedCategory}
                 onChange={(e) => dispatch(setCategory(e.target.value))}
-                className="w-full custom-select bg-slate-800/50 text-slate-200 border border-slate-700/50
+                className="w-full custom-select bg-gray-800/50 text-slate-200 border border-slate-700/50
                          rounded-lg px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-primary/50
                          hover:border-slate-600/50 transition-colors"
               >
@@ -34,7 +34,7 @@ const BillFilters = () => {
                   <option
                     key={category.value}
                     value={category.value}
-                    className="bg-slate-800 text-slate-200 py-2"
+                    className="bg-gray-800 text-slate-200 py-2"
                   >
                     {category.label}
                   </option>
@@ -42,9 +42,12 @@ const BillFilters = () => {
               </select>
             </div>
           </div>
-
-          <div className="flex-1">
-            <label className="flex items-center gap-2 text-sm font-medium text-slate-400 mb-2">
+        </div>
+      </div>
+      <div className="bg-gray-800/50 backdrop-blur-lg border border-white/50 rounded-2xl p-4 md:p-6">
+        <div className="flex flex-col md:flex-row gap-4 md:gap-6">
+        <div className="flex-1">
+            <label className="flex items-center gap-2 text-sm font-medium text-white mb-2">
               <DollarSign className="w-4 h-4" />
               Monthly Budget
             </label>
@@ -57,7 +60,7 @@ const BillFilters = () => {
                 value={monthlyBudget}
                 onChange={(e) => dispatch(setBudget(Number(e.target.value)))}
                 onWheel={handleWheel}
-                className="w-full bg-slate-800/50 text-slate-200 border border-slate-700/50
+                className="w-full bg-gray-800/50 text-slate-200 border border-slate-700/50
                          rounded-lg pl-8 pr-4 py-2.5 focus:outline-none focus:ring-2 
                          focus:ring-primary/50 hover:border-slate-600/50 transition-colors
                          placeholder-slate-500"

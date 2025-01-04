@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import {
   selectFilteredBills,
   selectOptimalBills,
-} from "../../../features/bills/selectors";
+} from "../../../redux/features/bills/selectors";
 import { useBillActions } from "../../../hooks/useBillActions";
 import { formatCurrency, formatDate } from "../../../utils/format";
 import DeleteConfirmModal from "../../common/DeleteConfirmationModal";
@@ -20,19 +20,10 @@ const BillList = () => {
   const [deletingBill, setDeletingBill] = useState(null);
 
   return (
-    <div className="space-y-4">
-      {optimalBillIds.size > 0 && (
-        <div className="glass-effect rounded-xl p-4 flex items-center gap-3">
-          <CheckCircle className="text-green h-5 w-5 flex-shrink-0" />
-          <div className="text-slate-200 text-sm md:text-base">
-            <span className="font-semibold">{count} bills</span> can be paid (Total: {formatCurrency(totalAmount)})
-          </div>
-        </div>
-      )}
-
+    <div className="space-y-4 backdrop-blur-lg border border-white/50 rounded-2xl">
       <div className="table-container overflow-hidden">
-        <div className="p-4 md:p-6 border-b border-slate-700/50">
-          <h2 className="text-xl font-semibold text-slate-200">Bills</h2>
+        <div className="flex flex-col justify-center items-center p-4 md:p-6 border-b border-slate-700/50">
+          <h2 className="text-2xl font-semibold text-slate-200">Bills</h2>
         </div>
 
         {/* Mobile View */}
@@ -122,7 +113,7 @@ const BillList = () => {
                     </div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <span className="px-2 py-1 text-xs rounded-full bg-slate-700/50 text-slate-300">
+                    <span className="px-2 py-1 font-medium text-slate-300">
                       {bill.category}
                     </span>
                   </td>

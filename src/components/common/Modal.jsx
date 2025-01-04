@@ -39,16 +39,18 @@ const Modal = ({ isOpen, onClose, children, size = "md" }) => {
 
       {/* Modal */}
       <div className="min-h-screen px-4 text-center">
-        {/* This element is to trick the browser into centering the modal contents. */}
-        <span className="inline-block h-screen align-middle" aria-hidden="true">
+        <span
+          className="inline-block h-screen align-middle bg-black"
+          aria-hidden="true"
+        >
           &#8203;
         </span>
 
         <div
           className={`
             inline-block w-full ${sizeClasses[size]} p-6 my-8 text-left align-middle
-            bg-gradient-to-b from-slate-800 to-slate-900/95
-            backdrop-blur-xl rounded-2xl border border-slate-700/50
+            bg-black/75
+            backdrop-blur-xl rounded-2xl border border-white/50
             shadow-xl transform transition-all`}
         >
           <button
