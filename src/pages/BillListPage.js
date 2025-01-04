@@ -7,6 +7,8 @@ import { useSelector } from "react-redux";
 import { selectTotalAmount } from "../redux/features/bills/selectors";
 import { PlusCircle, TrendingUp, Wallet, Home } from "lucide-react";
 import BillFilters from "../components/bills/utils/BillFilters";
+import Modal from "../components/common/Modal";
+import BillForm from "../components/bills/utils/BillForm";
 
 const BillListPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -65,6 +67,9 @@ const BillListPage = () => {
       <div className="w-full max-w-6xl my-6 px-8">
         <BillList />
       </div>
+      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+          <BillForm onClose={() => setIsModalOpen(false)} />
+        </Modal>
     </div>
   );
 };
