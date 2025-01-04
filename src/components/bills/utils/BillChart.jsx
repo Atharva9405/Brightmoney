@@ -54,7 +54,7 @@ const BillChart = () => {
   }, [chartData]);
 
   return (
-    <div className="rounded-2xl bg-gray-800/50 backdrop-blur-lg border border-white/50">
+    <div className="rounded-2xl bg-gray-800/50">
       <div className="p-4 md:p-6 space-y-6">
         {/* Header Section */}
         <div className="flex flex-col justify-center md:flex-row items-center gap-4">

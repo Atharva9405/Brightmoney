@@ -1,5 +1,5 @@
 import { CheckCircle, PencilIcon, TrashIcon } from "lucide-react";
-import { CheckCheck } from 'lucide-react';
+import { CheckCheck } from "lucide-react";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import {
@@ -32,41 +32,41 @@ const BillList = () => {
           {bills.map((bill) => (
             <div
               key={bill.id}
-              className={`p-4 border-b border-slate-700/50 space-y-3 
-                ${optimalBillIds.has(bill.id) ? "bg-green-900/20" : ""}`}
+              className={`p-4 border-b border-gray-700/50 space-y-3 
+        ${optimalBillIds.has(bill.id) ? "bg-purple-900/30" : ""}`}
             >
               <div className="flex items-start justify-between">
                 <div className="space-y-1">
                   <div className="flex items-center gap-2">
                     {optimalBillIds.has(bill.id) && (
-                      <CheckCircle className="text-green h-4 w-4 flex-shrink-0" />
+                      <CheckCircle className="text-purple-500 h-4 w-4 flex-shrink-0" />
                     )}
-                    <p className="font-medium text-slate-200">
+                    <p className="font-medium text-gray-200">
                       {bill.description}
                     </p>
                   </div>
-                  <span className="inline-block px-2 py-1 text-xs rounded-full bg-slate-700/50 text-slate-300">
+                  <span className="inline-block px-2 py-1 text-xs rounded-full bg-gray-700/50 text-gray-300">
                     {bill.category}
                   </span>
                 </div>
                 <div className="flex gap-2">
                   <button
                     onClick={() => setEditingBill(bill)}
-                    className="p-2 text-slate-400 hover:text-primary-light transition-colors"
+                    className="p-2 text-gray-400 hover:text-purple-400 transition-colors"
                   >
                     <PencilIcon className="w-4 h-4" />
                   </button>
                   <button
                     onClick={() => setDeletingBill(bill)}
-                    className="p-2 text-slate-400 hover:text-red transition-colors"
+                    className="p-2 text-gray-400 hover:text-red-400 transition-colors"
                   >
                     <TrashIcon className="w-4 h-4" />
                   </button>
                 </div>
               </div>
               <div className="flex justify-between text-sm">
-                <span className="text-slate-400">{formatDate(bill.date)}</span>
-                <span className="font-medium text-slate-200">
+                <span className="text-gray-500">{formatDate(bill.date)}</span>
+                <span className="font-medium text-gray-200">
                   {formatCurrency(bill.amount)}
                 </span>
               </div>
