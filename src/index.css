@@ -75,29 +75,30 @@
   }
 
   .table-container {
-    @apply rounded-2xl bg-slate-800/50 backdrop-blur-lg border border-slate-700/50 
+    @apply rounded-2xl bg-slate-900/80 backdrop-blur-lg border border-slate-800 
            overflow-hidden transition-all duration-300;
   }
-
+  
   .table {
     @apply w-full;
   }
-
+  
   .table thead {
-    @apply bg-slate-800/80;
+    @apply bg-gradient-to-r from-purple-800 via-purple-700 to-indigo-800;
   }
-
+  
   .table th {
-    @apply px-6 py-4 text-left text-sm font-medium text-slate-400;
+    @apply px-6 py-4 text-left text-sm font-medium text-indigo-200;
   }
-
+  
   .table tbody tr {
-    @apply border-t border-slate-700/50 transition-colors hover:bg-slate-700/30;
+    @apply border-t border-slate-800 transition-colors hover:bg-indigo-900/40;
   }
-
+  
   .table td {
-    @apply px-6 py-4 text-sm text-slate-300;
+    @apply px-6 py-4 text-sm text-indigo-200;
   }
+  
 }
 
 /* Custom scrollbar */

@@ -1,4 +1,5 @@
 import { CheckCircle, PencilIcon, TrashIcon } from "lucide-react";
+import { CheckCheck } from 'lucide-react';
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import {
@@ -74,66 +75,67 @@ const BillList = () => {
         </div>
 
         {/* Desktop View */}
-        <div className="hidden md:block overflow-x-auto scrollbar-custom">
-          <table className="w-full">
-            <thead>
-              <tr className="bg-slate-800/50">
-                <th className="px-6 py-4 text-left text-xs font-medium text-slate-400 uppercase tracking-wider">
+        <div className="hidden md:block overflow-x-auto scrollbar-custom table-container rounded-2xl bg-slate-900/80 backdrop-blur-lg border border-slate-800 transition-all duration-300">
+          <table className="table w-full">
+            <thead className="bg-gradient-to-r from-purple-800 via-purple-700 to-indigo-800">
+              <tr>
+                <th className="px-6 py-4 text-left text-sm font-medium text-indigo-200 uppercase tracking-wide">
                   Description
                 </th>
-                <th className="px-6 py-4 text-left text-xs font-medium text-slate-400 uppercase tracking-wider">
+                <th className="px-6 py-4 text-left text-sm font-medium text-indigo-200 uppercase tracking-wide">
                   Category
                 </th>
-                <th className="px-6 py-4 text-left text-xs font-medium text-slate-400 uppercase tracking-wider">
+                <th className="px-6 py-4 text-left text-sm font-medium text-indigo-200 uppercase tracking-wide">
                   Amount
                 </th>
-                <th className="px-6 py-4 text-left text-xs font-medium text-slate-400 uppercase tracking-wider">
+                <th className="px-6 py-4 text-left text-sm font-medium text-indigo-200 uppercase tracking-wide">
                   Date
                 </th>
-                <th className="px-6 py-4 text-right text-xs font-medium text-slate-400 uppercase tracking-wider">
+                <th className="px-6 py-4 text-right text-sm font-medium text-indigo-200 uppercase tracking-wide">
                   Actions
                 </th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-700/50">
+            <tbody className="divide-y divide-slate-800">
               {bills.map((bill) => (
                 <tr
                   key={bill.id}
-                  className={`transition-colors hover:bg-slate-700/30 
-                    ${optimalBillIds.has(bill.id) ? "bg-green-900/20" : ""}`}
+                  className={`hover:bg-indigo-900/40 ${
+                    optimalBillIds.has(bill.id) ? "bg-indigo-900/20" : ""
+                  }`}
                 >
-                  <td className="px-6 py-4 whitespace-nowrap">
+                  <td className="px-6 py-4">
                     <div className="flex items-center gap-2">
                       {optimalBillIds.has(bill.id) && (
-                        <CheckCircle className="text-green h-4 w-4 flex-shrink-0" />
+                        <CheckCheck className="text-green-500 h-5 w-5 flex-shrink-0" />
                       )}
-                      <span className="font-medium text-slate-200">
+                      <span className="font-medium text-indigo-100">
                         {bill.description}
                       </span>
                     </div>
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <span className="px-2 py-1 font-medium text-slate-300">
+                  <td className="px-6 py-4">
+                    <span className="px-3 py-1 text-sm font-semibold text-white bg-indigo-600 rounded-full">
                       {bill.category}
                     </span>
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-slate-200">
+                  <td className="px-6 py-4 text-indigo-200">
                     {formatCurrency(bill.amount)}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-slate-400">
+                  <td className="px-6 py-4 text-indigo-400">
                     {formatDate(bill.date)}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-right">
-                    <div className="flex justify-end gap-3">
+                  <td className="px-6 py-4 text-right">
+                    <div className="flex justify-end gap-4">
                       <button
                         onClick={() => setEditingBill(bill)}
-                        className="text-slate-400 hover:text-primary-light transition-colors"
+                        className="text-indigo-300 hover:text-indigo-100 transition-colors"
                       >
                         <PencilIcon className="w-5 h-5" />
                       </button>
                       <button
                         onClick={() => setDeletingBill(bill)}
-                        className="text-slate-400 hover:text-red transition-colors"
+                        className="text-red-500 hover:text-red-300 transition-colors"
                       >
                         <TrashIcon className="w-5 h-5" />
                       </button>

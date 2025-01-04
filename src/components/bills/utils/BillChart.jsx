@@ -1,4 +1,3 @@
-import { TrendingUp } from "lucide-react";
 import { useMemo } from "react";
 import { useSelector } from "react-redux";
 import {
@@ -61,11 +60,8 @@ const BillChart = () => {
         <div className="flex flex-col justify-center md:flex-row items-center gap-4">
           <div className="flex flex-col items-center justify-center">
             <h2 className="text-xl font-semibold text-slate-200 flex items-center gap-2">
-              Expense Chart
+              Monthly Spending Analysis
             </h2>
-            <p className="text-sm text-slate-400 mt-1">
-              Monthly spending analysis
-            </p>
           </div>
         </div>
 
@@ -78,62 +74,81 @@ const BillChart = () => {
             >
               <defs>
                 <linearGradient id="colorAmount" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#38bdf8" stopOpacity={0.3} />
-                  <stop offset="95%" stopColor="#38bdf8" stopOpacity={0} />
+                  <stop offset="5%" stopColor="#a855f7" stopOpacity={0.5} />
+                  <stop offset="95%" stopColor="#9333ea" stopOpacity={0} />
                 </linearGradient>
               </defs>
+
+              {/* New Grid with soft lines */}
               <CartesianGrid
-                strokeDasharray="3 3"
-                stroke="#334155"
+                strokeDasharray="4 4"
+                stroke="#9ca3af" /* Light gray for grid lines */
                 vertical={false}
               />
+
+              {/* Customizing the X Axis */}
               <XAxis
                 dataKey="date"
-                stroke="#94a3b8"
-                tick={{ fill: "#94a3b8", fontSize: 12 }}
-                tickLine={{ stroke: "#334155" }}
-                axisLine={{ stroke: "#334155" }}
-                tickMargin={10}
-                minTickGap={5}
+                stroke="#f3f4f6" /* Light color for axis line */
+                tick={{ fill: "#f3f4f6", fontSize: 14 }}
+                tickLine={{ stroke: "#4b5563" }}
+                axisLine={{ stroke: "#4b5563" }}
+                tickMargin={15}
+                minTickGap={10}
               />
+
+              {/* Customizing the Y Axis */}
               <YAxis
-                stroke="#94a3b8"
-                tick={{ fill: "#94a3b8", fontSize: 12 }}
-                tickLine={{ stroke: "#334155" }}
-                axisLine={{ stroke: "#334155" }}
+                stroke="#f3f4f6"
+                tick={{ fill: "#f3f4f6", fontSize: 14 }}
+                tickLine={{ stroke: "#4b5563" }}
+                axisLine={{ stroke: "#4b5563" }}
                 tickFormatter={formatCurrency}
-                tickMargin={10}
-                width={60}
+                tickMargin={15}
+                width={70}
               />
+
+              {/* Tooltip Customization */}
               <Tooltip
                 contentStyle={{
-                  backgroundColor: "#1e293b",
-                  border: "1px solid #334155",
-                  borderRadius: "8px",
-                  boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.3)",
-                  padding: "12px",
+                  backgroundColor: "#1f2937" /* Dark gray background */,
+                  border: "1px solid #4b5563",
+                  borderRadius: "12px" /* Round corners */,
+                  boxShadow: "0 6px 12px rgba(0, 0, 0, 0.4)" /* Soft shadow */,
+                  padding: "15px",
                 }}
-                itemStyle={{ color: "#e2e8f0", fontSize: "12px" }}
+                itemStyle={{
+                  color: "#f3f4f6",
+                  fontSize: "14px",
+                }}
                 labelStyle={{
-                  color: "#94a3b8",
+                  color: "#d1d5db",
                   marginBottom: "8px",
                   fontSize: "12px",
                 }}
                 formatter={(value) => [`${formatCurrency(value)}`, "Amount"]}
                 labelFormatter={(label) => `Date: ${label}`}
               />
+
+              {/* Area Chart with Gradient */}
               <Area
                 type="monotone"
                 dataKey="amount"
-                stroke="#38bdf8"
-                strokeWidth={2}
+                stroke="#9333ea" /* Bold purple stroke */
+                strokeWidth={3}
                 fill="url(#colorAmount)"
-                dot={{ fill: "#38bdf8", strokeWidth: 2, r: 4 }}
-                activeDot={{
-                  r: 6,
-                  fill: "#38bdf8",
-                  stroke: "#0c4a6e",
+                dot={{
+                  fill: "#9333ea",
                   strokeWidth: 2,
+                  r: 5,
+                  stroke: "#581c87" /* Dark purple for the dot border */,
+                }}
+                activeDot={{
+                  r: 7,
+                  fill: "#9333ea",
+                  stroke: "#581c87",
+                  strokeWidth: 3,
+                  shadow: "0px 0px 15px rgba(0, 0, 0, 0.6)" /* Soft glow */,
                 }}
               />
             </AreaChart>

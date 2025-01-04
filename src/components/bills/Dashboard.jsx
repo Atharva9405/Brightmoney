@@ -5,17 +5,17 @@ import { selectTotalAmount } from "../../redux/features/bills/selectors";
 import Modal from "../common/Modal";
 import BillChart from "./utils/BillChart";
 import BillFilters from "./utils/BillFilters";
-import BillForm from "./utils/BillForm";
 import { formatCurrency } from "../../utils/format";
 import StatCard from "./StatCard";
 import { Link } from "react-router-dom";
-
-
+import { useLocation } from "react-router-dom"; // Import useLocation
+import BillForm from "./utils/BillForm";
 
 const Dashboard = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const totalAmount = useSelector(selectTotalAmount);
   const monthlyBudget = useSelector((state) => state.bills.monthlyBudget);
+  const location = useLocation(); // Get the current route
 
   return (
     <div className="min-h-screen bg-black px-4 py-8">
@@ -48,16 +48,18 @@ const Dashboard = () => {
             <PlusCircle className="w-5 h-5" />
             Add New Bill
           </button>
-          <Link to='/bills'
+          <Link
+            to="/bills"
             className="btn bg-white/75 text-black backdrop-blur-lg border border-white/50 text-2xl rounded-full"
           >
             Show Bills
           </Link>
         </div>
 
-        <BillFilters />
-        <BillChart />
+        {/* Conditionally render BillFilters if we're on the Dashboard */}
+        {location.pathname === "/" && <BillFilters />}
 
+        <BillChart />
         <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
           <BillForm onClose={() => setIsModalOpen(false)} />
         </Modal>

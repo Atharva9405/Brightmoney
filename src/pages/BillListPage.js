@@ -68,8 +68,8 @@ const BillListPage = () => {
         <BillList />
       </div>
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-          <BillForm onClose={() => setIsModalOpen(false)} />
-        </Modal>
+        <BillForm onClose={() => setIsModalOpen(false)} />
+      </Modal>
     </div>
   );
 };
